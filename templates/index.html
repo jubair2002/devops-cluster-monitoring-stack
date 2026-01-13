@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Converter Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Unit Converter</h1>
+            <p class="subtitle">Simple and easy unit conversion tool</p>
+        </header>
+        
+        <main>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="length">Length</button>
+                <button class="tab-btn" data-tab="weight">Weight</button>
+                <button class="tab-btn" data-tab="temperature">Temperature</button>
+                <button class="tab-btn" data-tab="volume">Volume</button>
+                <button class="tab-btn" data-tab="currency">Currency</button>
+                <button class="tab-btn" data-tab="number-base">Number Base</button>
+            </div>
+
+            <!-- Length Converter -->
+            <div class="tab-content active" id="length">
+                <div class="converter-card">
+                    <h2>Length Converter</h2>
+                    <div class="converter-form">
+                        <div class="input-group">
+                            <label>From</label>
+                            <input type="number" id="length-value" placeholder="Enter value" step="any">
+                            <select id="length-from">
+                                <option value="meter">Meter</option>
+                                <option value="kilometer">Kilometer</option>
+                                <option value="centimeter">Centimeter</option>
+                                <option value="millimeter">Millimeter</option>
+                                <option value="mile">Mile</option>
+                                <option value="yard">Yard</option>
+                                <option value="foot">Foot</option>
+                                <option value="inch">Inch</option>
+                            </select>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="number" id="length-result" placeholder="Result" readonly>
+                            <select id="length-to">
+                                <option value="meter">Meter</option>
+                                <option value="kilometer">Kilometer</option>
+                                <option value="centimeter">Centimeter</option>
+                                <option value="millimeter">Millimeter</option>
+                                <option value="mile">Mile</option>
+                                <option value="yard">Yard</option>
+                                <option value="foot">Foot</option>
+                                <option value="inch">Inch</option>
+                            </select>
+                        </div>
+                        <button class="convert-btn" onclick="convertLength()">Convert</button>
+                    </div>
+                    <div id="length-message" class="message"></div>
+                </div>
+            </div>
+
+            <!-- Weight Converter -->
+            <div class="tab-content" id="weight">
+                <div class="converter-card">
+                    <h2>Weight Converter</h2>
+                    <div class="converter-form">
+                        <div class="input-group">
+                            <label>From</label>
+                            <input type="number" id="weight-value" placeholder="Enter value" step="any">
+                            <select id="weight-from">
+                                <option value="kilogram">Kilogram</option>
+                                <option value="gram">Gram</option>
+                                <option value="milligram">Milligram</option>
+                                <option value="pound">Pound</option>
+                                <option value="ounce">Ounce</option>
+                                <option value="ton">Ton</option>
+                                <option value="stone">Stone</option>
+                            </select>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="number" id="weight-result" placeholder="Result" readonly>
+                            <select id="weight-to">
+                                <option value="kilogram">Kilogram</option>
+                                <option value="gram">Gram</option>
+                                <option value="milligram">Milligram</option>
+                                <option value="pound">Pound</option>
+                                <option value="ounce">Ounce</option>
+                                <option value="ton">Ton</option>
+                                <option value="stone">Stone</option>
+                            </select>
+                        </div>
+                        <button class="convert-btn" onclick="convertWeight()">Convert</button>
+                    </div>
+                    <div id="weight-message" class="message"></div>
+                </div>
+            </div>
+
+            <!-- Temperature Converter -->
+            <div class="tab-content" id="temperature">
+                <div class="converter-card">
+                    <h2>Temperature Converter</h2>
+                    <div class="converter-form">
+                        <div class="input-group">
+                            <label>From</label>
+                            <input type="number" id="temp-value" placeholder="Enter value" step="any">
+                            <select id="temp-from">
+                                <option value="celsius">Celsius</option>
+                                <option value="fahrenheit">Fahrenheit</option>
+                                <option value="kelvin">Kelvin</option>
+                            </select>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="number" id="temp-result" placeholder="Result" readonly>
+                            <select id="temp-to">
+                                <option value="celsius">Celsius</option>
+                                <option value="fahrenheit">Fahrenheit</option>
+                                <option value="kelvin">Kelvin</option>
+                            </select>
+                        </div>
+                        <button class="convert-btn" onclick="convertTemperature()">Convert</button>
+                    </div>
+                    <div id="temp-message" class="message"></div>
+                </div>
+            </div>
+
+            <!-- Volume Converter -->
+            <div class="tab-content" id="volume">
+                <div class="converter-card">
+                    <h2>Volume Converter</h2>
+                    <div class="converter-form">
+                        <div class="input-group">
+                            <label>From</label>
+                            <input type="number" id="volume-value" placeholder="Enter value" step="any">
+                            <select id="volume-from">
+                                <option value="liter">Liter</option>
+                                <option value="milliliter">Milliliter</option>
+                                <option value="gallon">Gallon</option>
+                                <option value="quart">Quart</option>
+                                <option value="pint">Pint</option>
+                                <option value="cup">Cup</option>
+                                <option value="fluid_ounce">Fluid Ounce</option>
+                                <option value="cubic_meter">Cubic Meter</option>
+                                <option value="cubic_centimeter">Cubic Centimeter</option>
+                            </select>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="number" id="volume-result" placeholder="Result" readonly>
+                            <select id="volume-to">
+                                <option value="liter">Liter</option>
+                                <option value="milliliter">Milliliter</option>
+                                <option value="gallon">Gallon</option>
+                                <option value="quart">Quart</option>
+                                <option value="pint">Pint</option>
+                                <option value="cup">Cup</option>
+                                <option value="fluid_ounce">Fluid Ounce</option>
+                                <option value="cubic_meter">Cubic Meter</option>
+                                <option value="cubic_centimeter">Cubic Centimeter</option>
+                            </select>
+                        </div>
+                        <button class="convert-btn" onclick="convertVolume()">Convert</button>
+                    </div>
+                    <div id="volume-message" class="message"></div>
+                </div>
+            </div>
+
+            <!-- Currency Converter -->
+            <div class="tab-content" id="currency">
+                <div class="converter-card">
+                    <h2>Currency Converter</h2>
+                    <div class="converter-form">
+                        <div class="input-group">
+                            <label>From</label>
+                            <input type="number" id="currency-value" placeholder="Enter amount" step="any">
+                            <select id="currency-from">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="INR">INR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="AUD">AUD</option>
+                                <option value="CHF">CHF</option>
+                                <option value="CNY">CNY</option>
+                                <option value="MXN">MXN</option>
+                            </select>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="number" id="currency-result" placeholder="Result" readonly>
+                            <select id="currency-to">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="INR">INR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="AUD">AUD</option>
+                                <option value="CHF">CHF</option>
+                                <option value="CNY">CNY</option>
+                                <option value="MXN">MXN</option>
+                            </select>
+                        </div>
+                        <button class="convert-btn" onclick="convertCurrency()">Convert</button>
+                    </div>
+                    <div id="currency-message" class="message"></div>
+                </div>
+            </div>
+
+            <!-- Number Base Converter -->
+            <div class="tab-content" id="number-base">
+                <div class="converter-card">
+                    <h2>Number Base Converter</h2>
+                    <div class="converter-form">
+                        <div class="input-group">
+                            <label>From</label>
+                            <input type="text" id="number-value" placeholder="Enter number">
+                            <select id="number-from">
+                                <option value="decimal">Decimal</option>
+                                <option value="binary">Binary</option>
+                                <option value="hexadecimal">Hexadecimal</option>
+                                <option value="octal">Octal</option>
+                            </select>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="text" id="number-result" placeholder="Result" readonly>
+                            <select id="number-to">
+                                <option value="decimal">Decimal</option>
+                                <option value="binary">Binary</option>
+                                <option value="hexadecimal">Hexadecimal</option>
+                                <option value="octal">Octal</option>
+                            </select>
+                        </div>
+                        <button class="convert-btn" onclick="convertNumberBase()">Convert</button>
+                    </div>
+                    <div id="number-message" class="message"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Unit Converter | <a href="/health">Health Check</a></p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
