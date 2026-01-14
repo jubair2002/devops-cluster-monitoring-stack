@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: converter-app-service
+spec:
+  selector:
+    app.kubernetes.io/name: myapp
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: nodePort
