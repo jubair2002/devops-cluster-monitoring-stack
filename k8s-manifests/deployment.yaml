@@ -19,3 +19,8 @@ spec:
         image: jubair2002/multiconverter-app:v1
         ports:
         - containerPort: 5000
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 500m
